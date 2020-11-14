@@ -1,6 +1,6 @@
 FROM grpc/python:1.4
-ADD . /microservices-grpc-go-python
-WORKDIR /microservices-grpc-go-python/pyton
+ADD . /app/src/Proyecto2/
+WORKDIR /Proyecto2/servidor/ServerPython/
 RUN pip install --upgrade pip
 
 RUN pip install -r Requirements.txt
