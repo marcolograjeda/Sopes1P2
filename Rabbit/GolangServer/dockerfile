@@ -1,0 +1,10 @@
+FROM golang:1.11-stretch
+ADD . /app/src/microservices-grpc-go-python
+ENV GOPATH=/app
+
+RUN go get -u github.com/gorilla/mux
+RUN go get -u github.com/streadway/amqp
+
+WORKDIR /app/src/microservices-grpc-go-python/
+
+CMD ["go", "run", "send.go"]
