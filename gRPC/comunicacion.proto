@@ -1,0 +1,10 @@
+syntax = "proto3";
+package comunicacion;
+
+service Comunicando {
+    rpc call (llamada) returns (llamada) {}
+}
+
+message llamada{
+    string body = 1;
+}
