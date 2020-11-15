@@ -76,7 +76,7 @@ func main() {
 		fmt.Fprintf(w, "It is working.")
 	})
 
-	myRouter.HandleFunc("/insert", crearmensaje).Methods("POST")
+	myRouter.HandleFunc("/crear", crearmensaje).Methods("POST")
 
 	fmt.Println("Server running on", port)
 	http.ListenAndServe(":"+port, myRouter)

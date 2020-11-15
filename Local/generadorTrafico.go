@@ -63,19 +63,20 @@ func main() {
 				for x := 0; x < cantidadGorutinas; x++ {
 					fmt.Println(x)
 					go func() {
-						mapDatos := map[string]string{"name": res.Casos[x].Name, "location": res.Casos[x].Location,
-							"age": strconv.Itoa(res.Casos[x].Age), "infectedtype": res.Casos[x].Infectedtype, "state": res.Casos[x].State}
-						mapB, _ := json.Marshal(mapDatos)
+						mapD := map[string]string{"name": res.Casos[x].Name, "location":res.Casos[x].Location,
+							"age": strconv.Itoa(res.Casos[x].Age), "infectedtype":res.Casos[x].Infectedtype, "state":res.Casos[x].State}
+						mapB, _ := json.Marshal(mapD)
 						fmt.Println(string(mapB))
-						resp, err := http.Post(direccion+"/crear", "application/json", bytes.NewBuffer(mapB))
-						if err != nil {
+
+						resp, err := http.Post( direccion, "application/json", bytes.NewBuffer(mapB))
+						if err != nil{
 							log.Fatalln(err)
 						}
 
 						defer resp.Body.Close()
 
 						body, err := ioutil.ReadAll(resp.Body)
-						if err != nil {
+						if err != nil{
 							log.Fatalln(err)
 						}
 
