@@ -9,15 +9,13 @@ import (
 	"net/http"
 	"time"
 
-
 	pb "./comunicacion"
-	"google.golang.org/grpc"
 	"github.com/gorilla/mux"
-
+	"google.golang.org/grpc"
 )
 
 func getmessaje() string {
-	conn, err := grpc.Dial("localhost:9000", grpc.WithInsecure())
+	conn, err := grpc.Dial("35.192.143.50:9000", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("No se pudo conectar: %v", err)
 	}
@@ -44,11 +42,11 @@ func handlemensajes(w http.ResponseWriter, req *http.Request) {
 }
 
 type Article struct {
-	Name      string `json:"name"`
-	Location   string `json:"location"`
-	Age   string `json:"age"`
-	Infectedtype   string `json:"infectedtype"`
-	State   string `json:"state"`
+	Name         string `json:"name"`
+	Location     string `json:"location"`
+	Age          string `json:"age"`
+	Infectedtype string `json:"infectedtype"`
+	State        string `json:"state"`
 }
 
 func crearmensaje(w http.ResponseWriter, r *http.Request) {
@@ -57,13 +55,13 @@ func crearmensaje(w http.ResponseWriter, r *http.Request) {
 
 	reqBody, _ := ioutil.ReadAll(r.Body)
 
-	productsWithDiscountApplied := sendmessajepython( string(reqBody))
+	productsWithDiscountApplied := sendmessajepython(string(reqBody))
 	json.NewEncoder(w).Encode(productsWithDiscountApplied)
 }
 
 func sendmessajepython(as string) string {
 
-	conn, err := grpc.Dial("localhost:9000", grpc.WithInsecure())
+	conn, err := grpc.Dial("35.192.143.50:9000", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("No se pudo conectar : %v", err)
 	}

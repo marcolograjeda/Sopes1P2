@@ -1,7 +1,8 @@
-FROM grpc/python
+FROM grpc/python:1.4
 ADD . /app/src/Proyecto2/
 WORKDIR /app/src/Proyecto2/servidor_Py/Comunicado
 RUN pip install --upgrade pip \
  && pip install grpcio grpcio-tools
+ RUN pip install --upgrade protobuf
 RUN pip install -r requerimientos.txt
 CMD ["python", "servidor.py", "11443"]
