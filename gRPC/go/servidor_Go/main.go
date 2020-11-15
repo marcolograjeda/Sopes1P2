@@ -60,7 +60,7 @@ func crearmensaje(w http.ResponseWriter, r *http.Request) {
 }
 
 func sendmessajepython(as string) string {
-
+	fmt.Println("35.192.143.50:9000")
 	conn, err := grpc.Dial("35.192.143.50:9000", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("No se pudo conectar : %v", err)
