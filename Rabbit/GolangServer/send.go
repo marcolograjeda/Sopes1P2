@@ -30,7 +30,7 @@ func crearmensaje(w http.ResponseWriter, r *http.Request) {
 
 func sendmessajepython(as string) string {
 
-	conn, err := amqp.Dial("amqp://guest:guest@localhost/")
+	conn, err := amqp.Dial("amqp://guest:guest@104.154.53.252:5672/")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 

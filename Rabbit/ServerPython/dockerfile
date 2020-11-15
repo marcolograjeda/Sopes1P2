@@ -3,5 +3,4 @@ ADD . /app/src/Proyecto2/
 WORKDIR /Proyecto2/servidor/
 RUN pip install --upgrade pip
 
-RUN pip install -r Requeriments.txt
 CMD ["python", "main.py", "9500"]
