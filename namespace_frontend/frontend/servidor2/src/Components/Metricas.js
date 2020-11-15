@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 class Metricas extends Component {
-    url = 'http://localhost:3000'
+    url = 'appserver:3000'
     constructor() {
         super();
         this.state = { departamentos: [], top3:[], custom: [], ultimo:{
