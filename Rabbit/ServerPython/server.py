@@ -5,7 +5,7 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 import redis
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='104.154.53.252:5672'))
 channel= connection.channel()
 
 channel.queue_declare(queue='lab-so1')
