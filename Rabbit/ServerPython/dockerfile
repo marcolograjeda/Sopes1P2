@@ -1,7 +1,7 @@
 FROM grpc/python:1.4
-ADD . /app/src/Proyecto2/
+ADD . /Proyecto2/servidor/
 WORKDIR /Proyecto2/servidor/
 RUN pip install --upgrade pip
 
-RUN pip install -r Requeriments.txt
+RUN pip install -r Requirements.txt
 CMD ["python", "main.py", "9500"]
